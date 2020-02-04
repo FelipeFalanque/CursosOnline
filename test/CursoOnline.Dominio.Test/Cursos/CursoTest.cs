@@ -15,7 +15,7 @@ namespace CursoOnline.Dominio.Test.Cursos
             {
                 Nome = (string)"Informática Básica",
                 CargaHoraria = (double)80,
-                PublicoAlvo = (string)"Estudantes",
+                PublicoAlvo = PublicoAlvo.Estudante,
                 Valor = (double)950
             };
 
@@ -25,14 +25,22 @@ namespace CursoOnline.Dominio.Test.Cursos
         }
     }
 
+    public enum PublicoAlvo
+    {
+        Estudante,
+        Universitário,
+        Empregado,
+        Empreendedor
+    }
+
     public class Curso
     {
         public string Nome { get; private set; }
         public double CargaHoraria { get; private set; }
-        public string PublicoAlvo { get; private set; }
+        public PublicoAlvo PublicoAlvo { get; private set; }
         public double Valor { get; private set; }
 
-        public Curso(string nome, double cargaHoraria, string publicoAlvo, double valor)
+        public Curso(string nome, double cargaHoraria, PublicoAlvo publicoAlvo, double valor)
         {
             this.Nome = nome;
             this.CargaHoraria = cargaHoraria;
